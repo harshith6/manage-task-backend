@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:17         # pin version
+    environment:
+      POSTGRES_USER: tracker
+      POSTGRES_PASSWORD: changeme
+      POSTGRES_DB: trackerdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  pgdata:
